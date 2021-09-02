@@ -17,8 +17,10 @@ const displayData = (data) => {
   const booksContainer = document.getElementById("books-container");
   const totalResult=document.getElementById('total-Result');
   console.log(data.length)
+  booksContainer.textContent='';
+  totalResult.textContent='';
   if(data.length==0){
-   
+   console.log(data.length);
     booksContainer.innerHTML=`<p class="fs-1 no-result"> No result found</p>`
   }
   else{
@@ -29,16 +31,14 @@ const displayData = (data) => {
       BookDiv.textContent='';
       const Imgurl=`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
   BookDiv.innerHTML=`
-  <div class="card h-100">
+  <div class="card h-100 pt-3 justify-content-center align-items-center">
                 <img src="${Imgurl}" class="book-img" alt="Book Cover">
                   <div class="card-body">
                     <h5 class="card-title">${book.title}</h5>
                     <p class="card-text">Author: ${book?.author_name}</p>
                     <p class="card-text">first publish: ${book.first_publish_year}</p>
                   </div>
-                  <div class="card-footer">
-                    <p class="view-details">View details</p>
-                  </div>
+                
                 </div>
   `;
       booksContainer.appendChild(BookDiv);
