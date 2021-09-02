@@ -16,6 +16,12 @@ const lodeData = () => {
 const displayData = (data) => {
   const booksContainer = document.getElementById("books-container");
   const totalResult=document.getElementById('total-Result');
+  console.log(data.length)
+  if(data.length==0){
+   
+    booksContainer.innerHTML=`<p class="fs-1 no-result"> No result found</p>`
+  }
+  else{
   for (const book of data) {
     const BookDiv = document.createElement("div");
     BookDiv.classList.add("col");
@@ -33,11 +39,13 @@ const displayData = (data) => {
                     </div>
                   </div>
     `;
-
+  
     booksContainer.appendChild(BookDiv);
 
-    totalResult.innerHTML=`
-    <p>Total search result ${data.length}
-    `
+   
   }
+  totalResult.innerHTML=`
+  <p>Total search result ${data.length}
+  `
+}
 };
