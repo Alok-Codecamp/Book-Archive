@@ -1,0 +1,16 @@
+body {
+    background: aliceblue;
+}
+
+header {
+    background: white;
+    height: 160px;
+}
+
+#search-input{
+    border-bottom: 2px solid #FF9900;
+}
+
+#search-btn{
+    background-color: #0397D3;
+}
