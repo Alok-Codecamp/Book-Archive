@@ -29,7 +29,7 @@ const displayData = (data) => {
       BookDiv.textContent = "";
       const Imgurl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
       BookDiv.innerHTML = `
-  <div class="card h-100 pt-3 justify-content-center align-items-center">
+  <div class="card h-100 pt-3 mt-3 align-items-center">
                 <img src="${Imgurl}" class="book-img" alt="Book Cover">
                   <div class="card-body">
                     <h5 class="card-title">${book.title}</h5>
