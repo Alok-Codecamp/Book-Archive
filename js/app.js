@@ -22,30 +22,31 @@ const displayData = (data) => {
     booksContainer.innerHTML=`<p class="fs-1 no-result"> No result found</p>`
   }
   else{
-  for (const book of data) {
-    const BookDiv = document.createElement("div");
-    BookDiv.classList.add("col");
-
-    BookDiv.innerHTML=`
-    <div class="card h-100">
-                    <img src="" class="card-img-top" alt="">
-                    <div class="card-body">
-                      <h5 class="card-title">${book.title}</h5>
-                      <p class="card-text">Author: ${book?.author_name}</p>
-                      <p class="card-text">first publish: ${book.first_publish_year}</p>
-                    </div>
-                    <div class="card-footer">
-                      <p class="view-details">View details</p>
-                    </div>
+  data.forEach(book=>{
+      
+      const BookDiv = document.createElement("div");
+      BookDiv.classList.add("col");
+      BookDiv.textContent='';
+      const Imgurl=`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
+  BookDiv.innerHTML=`
+  <div class="card h-100">
+                <img src="${Imgurl}" class="book-img" alt="Book Cover">
+                  <div class="card-body">
+                    <h5 class="card-title">${book.title}</h5>
+                    <p class="card-text">Author: ${book?.author_name}</p>
+                    <p class="card-text">first publish: ${book.first_publish_year}</p>
                   </div>
-    `;
-  
-    booksContainer.appendChild(BookDiv);
-
-   
-  }
+                  <div class="card-footer">
+                    <p class="view-details">View details</p>
+                  </div>
+                </div>
+  `;
+      booksContainer.appendChild(BookDiv);
+      
+  });
   totalResult.innerHTML=`
   <p>Total search result ${data.length}
   `
 }
 };
+
