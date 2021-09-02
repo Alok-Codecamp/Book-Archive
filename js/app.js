@@ -15,22 +15,20 @@ const lodeData = () => {
 
 const displayData = (data) => {
   const booksContainer = document.getElementById("books-container");
-  const totalResult=document.getElementById('total-Result');
-  console.log(data.length)
-  booksContainer.textContent='';
-  totalResult.textContent='';
-  if(data.length==0){
-   console.log(data.length);
-    booksContainer.innerHTML=`<p class="fs-1 no-result"> No result found</p>`
-  }
-  else{
-  data.forEach(book=>{
-      
+  const totalResult = document.getElementById("total-Result");
+  console.log(data.length);
+  booksContainer.textContent = "";
+  totalResult.textContent = "";
+  if (data.length == 0) {
+    console.log(data.length);
+    booksContainer.innerHTML = `<p class="fs-1 no-result"> No result found</p>`;
+  } else {
+    data.forEach((book) => {
       const BookDiv = document.createElement("div");
       BookDiv.classList.add("col");
-      BookDiv.textContent='';
-      const Imgurl=`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
-  BookDiv.innerHTML=`
+      BookDiv.textContent = "";
+      const Imgurl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
+      BookDiv.innerHTML = `
   <div class="card h-100 pt-3 justify-content-center align-items-center">
                 <img src="${Imgurl}" class="book-img" alt="Book Cover">
                   <div class="card-body">
@@ -42,11 +40,9 @@ const displayData = (data) => {
                 </div>
   `;
       booksContainer.appendChild(BookDiv);
-      
-  });
-  totalResult.innerHTML=`
-  <p>Total search result ${data.length}
-  `
-}
+    });
+    totalResult.innerHTML = `
+  <p class='total-result'>Total search result: ${data.length}
+  `;
+  }
 };
-
